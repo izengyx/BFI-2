@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大五人格测试</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>大五人格测试</h1>
+        <div class="introduction">
+            <p class="description">
+                下面是一些关于个人特征的描述，有些可能适用于你，有些可能不适用于你。
+                比如，你是否同意"我是一个喜欢与他人待在一起的人"？
+                请在每个选项中选择相应的选项以表明你同意或不同意这个描述。
+            </p>
+            <div class="reference">
+                <p>参考文献：</p>
+                <p>Zhang, B., Li, Y. M., Li, J., Luo, J., Ye, Y., Yin, L., Chen, Z., Soto, C. J., & John, O. P. (2021). 
+                   The Big Five Inventory-2 in China: A comprehensive psychometric evaluation in four diverse samples. 
+                   Assessment. <a href="https://doi.org/10.1177/10731911211008245" target="_blank">https://doi.org/10.1177/10731911211008245</a>
+                </p>
+            </div>
+        </div>
+        <hr>
+        <div id="test-container">
+            <div id="progress-bar">
+                <div id="progress"></div>
+            </div>
+            <div id="question-container">
+                <!-- 问题将通过JavaScript动态加载 -->
+            </div>
+            <div class="button-container">
+                <button id="prev-btn" style="display: none;">上一题</button>
+                <button id="next-btn">下一题</button>
+            </div>
+        </div>
+        <div id="results" style="display: none;">
+            <h2>测试结果</h2>
+            
+            <div class="sample-group-selection">
+                <h3>请选择您所属的样本群体</h3>
+                <select id="sample-group-select">
+                    <option value="">-- 请选择 --</option>
+                    <option value="U.S. internet">美国互联网用户</option>
+                    <option value="U.S. college">美国大学生</option>
+                    <option value="CN college">中国大学生</option>
+                    <option value="CN employee">中国职场人士</option>
+                    <option value="CN substance use">中国物质使用群体</option>
+                    <option value="CN adolescent T1">中国青少年T1</option>
+                    <option value="CN adolescent T2">中国青少年T2</option>
+                </select>
+                <button id="calculate-percentile-btn">计算百分位数</button>
+            </div>
+            
+            <div class="results-container">
+                <div class="chart-container">
+                    <canvas id="radar-chart"></canvas>
+                </div>
+                
+                <div id="percentile-results" style="display: none;">
+                    <h3>百分位数结果</h3>
+                    <div id="percentile-container"></div>
+                </div>
+                
+                <div id="scores-container"></div>
+                
+                <div class="button-group">
+                    <button id="export-btn">导出结果</button>
+                    <button id="save-btn">保存结果</button>
+                    <button id="view-history-btn">查看历史</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 历史记录对话框 -->
+        <div id="history-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>历史测试记录</h2>
+                <div id="history-container"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
